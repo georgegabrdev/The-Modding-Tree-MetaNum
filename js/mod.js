@@ -28,7 +28,7 @@ let winText = `Congratulations! You have reached the end and beaten this game, b
 var doNotCallTheseFunctionsEveryTick = ["blowUpEverything"]
 
 function getStartPoints(){
-    return new ExpantaNum(modInfo.initialStartPoints)
+    return new MetaNum(modInfo.initialStartPoints)
 }
 
 // Determines if it should show points/sec
@@ -39,9 +39,9 @@ function canGenPoints(){
 // Calculate points/sec!
 function getPointGen() {
 	if(!canGenPoints())
-		return new ExpantaNum(0)
+		return new MetaNum(0)
 
-	let gain = new ExpantaNum(1)
+	let gain = new MetaNum(1)
 	return gain
 }
 
