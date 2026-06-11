@@ -19,18 +19,18 @@ function regularFormat(num, precision) {
 }
 
 function fixValue(x, y = 0) {
-    return x || new ExpantaNum(y)
+    return x || new MetaNum(y)
 }
 
 function sumValues(x) {
     x = Object.values(x)
-    if (!x[0]) return new ExpantaNum(0)
-    return x.reduce((a, b) => ExpantaNum.add(a, b))
+    if (!x[0]) return new MetaNum(0)
+    return x.reduce((a, b) => MetaNum.add(a, b))
 }
 
 function format(decimal, precision = 2, small=false) {
     small = small || modInfo.allowSmall
-    decimal = new ExpantaNum(decimal)
+    decimal = new MetaNum(decimal)
     let fmt = decimal.toString(precision)
     if(decimal.gte(1000)&&decimal.lt("10^^5")){
       let powers = fmt.split("e")
@@ -91,10 +91,10 @@ function formatTime(s) {
 }
 
 function toPlaces(x, precision, maxAccepted) {
-    x = new ExpantaNum(x)
+    x = new MetaNum(x)
     let result = x.toString(precision)
-    if (new ExpantaNum(result).gte(maxAccepted)) {
-        result = new ExpantaNum(maxAccepted - Math.pow(0.1, precision)).toString(precision)
+    if (new MetaNum(result).gte(maxAccepted)) {
+        result = new MetaNum(maxAccepted - Math.pow(0.1, precision)).toString(precision)
     }
     return result
 }
