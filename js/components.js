@@ -553,7 +553,7 @@ function loadVue() {
 		data: {
 			player,
 			tmp,
-			ExpantaNum,
+			MetaNum,
 			format,
 			formatWhole,
 			formatTime,
