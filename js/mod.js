@@ -38,11 +38,15 @@ function canGenPoints(){
 
 // Calculate points/sec!
 function getPointGen() {
-	if(!canGenPoints())
-		return new MetaNum(0)
+    if (!canGenPoints())
+        return new MetaNum(0)
 
-	let gain = new MetaNum(1)
-	return gain
+    let gain = new MetaNum(1)
+
+    if (hasUpgrade("p", 11))
+        gain = gain.times(upgradeEffect("p", 11))
+
+    return gain
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
