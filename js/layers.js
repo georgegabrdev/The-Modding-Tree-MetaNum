@@ -12,6 +12,21 @@ addLayer("p", {
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+	upgrades: {
+		11: {
+	        title: "Triple Points",
+	        description: "Triple your point gain.",
+	        cost: new MetaNum(100),
+	
+	        effect() {
+	            return new MetaNum(3)
+	        },
+	
+	        effectDisplay() {
+	            return format(upgradeEffect(this.layer, this.id)) + "x"
+	        },
+	    },
+	},
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new MetaNum(1)
