@@ -16,7 +16,7 @@ addLayer("p", {
 		11: {
 	        title: "Triple Points",
 	        description: "Triple your point gain.",
-	        cost: new MetaNum(100),
+	        cost: new MetaNum(25),
 	
 	        effect() {
 	            return new MetaNum(3)
