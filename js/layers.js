@@ -1,3 +1,19 @@
+const PRESTIGE_UPGRADES = {
+    11: {
+        title: "Triple Points",
+        description: "Triple your point gain.",
+        cost: new MetaNum(100),
+
+        effect() {
+            return new MetaNum(3)
+        },
+
+        effectDisplay() {
+            return format(this.effect()) + "x"
+        },
+    },
+}
+
 addLayer("p", {
     name: "prestige", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -25,4 +41,5 @@ addLayer("p", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
+	upgrades: PRESTIGE_UPGRADES,
 })
